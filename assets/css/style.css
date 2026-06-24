@@ -14,7 +14,7 @@
 
   /* Typography */
   --font-ui:      'Inter', system-ui, -apple-system, sans-serif;
-  --font-reading: 'Lora', ui-serif, 'New York', Georgia, serif;
+  --font-reading: 'Source Serif 4', ui-serif, 'New York', 'Times New Roman', Georgia, serif;
 }
 
 /* ── Reset ── */
@@ -31,6 +31,18 @@ body {
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+/* ── Avatar ── */
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin-bottom: 18px;
+  display: block;
+  border: 2px solid var(--border);
+}
 
 /* ── Two-column layout ── */
 .layout {
@@ -139,11 +151,13 @@ main {
 }
 
 .interests-line {
-  font-size: 0.875rem;
+  font-family: var(--font-reading);
+  font-size: 0.95rem;
   color: var(--text-mid);
   line-height: 1.8;
 }
 .interests-line .label {
+  font-family: var(--font-ui);
   display: block;
   font-size: 0.7rem;
   font-weight: 600;
@@ -181,7 +195,8 @@ h2 {
   margin-bottom: 3px;
 }
 .entry-meta {
-  font-size: 0.82rem;
+  font-family: var(--font-reading);
+  font-size: 0.9rem;
   color: var(--text-mid);
 }
 
@@ -196,13 +211,15 @@ h2 {
   margin-bottom: 6px;
 }
 .pub-authors {
-  font-size: 0.82rem;
+  font-family: var(--font-reading);
+  font-size: 0.9rem;
   color: var(--text-mid);
   margin-bottom: 2px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .pub-venue {
-  font-size: 0.82rem;
+  font-family: var(--font-reading);
+  font-size: 0.9rem;
   color: var(--text-mid);
 }
 
