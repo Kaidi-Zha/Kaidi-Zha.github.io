@@ -10,7 +10,11 @@
   --sidebar-w:    230px;
   --gap:          64px;
   --max-w:        980px;
-  --nav-h:        0px;   /* no top nav in sidebar layout */
+  --nav-h:        0px;
+
+  /* Typography */
+  --font-ui:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-reading: 'Lora', ui-serif, 'New York', Georgia, serif;
 }
 
 /* ── Reset ── */
@@ -18,7 +22,7 @@
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-ui);
   background: var(--cream);
   color: var(--text);
   line-height: 1.75;
@@ -122,15 +126,16 @@ main {
 
 /* ── Bio ── */
 .bio {
-  font-size: 0.95rem;
+  font-family: var(--font-reading);
+  font-size: 1.05rem;
   color: var(--text);
-  line-height: 1.85;
-  margin-bottom: 20px;
+  line-height: 1.9;
+  margin-bottom: 22px;
 }
 .bio em {
   color: var(--accent);
-  font-style: normal;
-  font-weight: 500;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .interests-line {
@@ -183,11 +188,12 @@ h2 {
 /* ── Publications ── */
 .pub { margin-bottom: 20px; }
 .pub-title {
-  font-size: 0.93rem;
+  font-family: var(--font-reading);
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text);
-  line-height: 1.55;
-  margin-bottom: 4px;
+  line-height: 1.6;
+  margin-bottom: 6px;
 }
 .pub-authors {
   font-size: 0.82rem;
