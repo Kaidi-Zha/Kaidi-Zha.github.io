@@ -1,0 +1,245 @@
+/* ── Variables ── */
+:root {
+  --cream:       #FAF8F5;
+  --cream-dark:  #F2EDE6;
+  --border:      #E2D9D0;
+  --text:        #1C1410;
+  --text-mid:    #6B5C52;
+  --accent:      #C8603A;
+  --accent-hover:#A84D2C;
+  --max-w:       680px;
+  --nav-h:       52px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ── Nav ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  height: var(--nav-h);
+}
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+nav ul a {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  font-weight: 400;
+}
+nav ul a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Main ── */
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* ── Header ── */
+header {
+  margin-bottom: 40px;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.role {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  margin-bottom: 2px;
+}
+.affil {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+.bio {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.bio em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 500;
+}
+.contact-line {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+}
+.contact-line .sep {
+  margin: 0 6px;
+  color: var(--border);
+}
+
+/* ── HR ── */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 36px 0;
+}
+
+/* ── Sections ── */
+section {
+  margin-bottom: 8px;
+}
+h2 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+/* ── Research Interests ── */
+section:first-of-type p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 2;
+}
+
+/* ── Research Items ── */
+.research-item {
+  margin-bottom: 22px;
+}
+.ri-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.ri-meta {
+  font-size: 0.84rem;
+  color: var(--text-mid);
+}
+.ri-meta a {
+  color: var(--text-mid);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+}
+.ri-meta a:hover { color: var(--accent); }
+
+/* ── Publications ── */
+.pub-item {
+  margin-bottom: 24px;
+}
+.pub-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+.pub-authors {
+  font-size: 0.84rem;
+  color: var(--text-mid);
+  margin-bottom: 2px;
+}
+.pub-venue {
+  font-size: 0.84rem;
+  color: var(--text-mid);
+}
+
+/* ── Education ── */
+.edu-item {
+  margin-bottom: 16px;
+}
+.edu-degree {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.edu-dept {
+  font-size: 0.84rem;
+  color: var(--text-mid);
+}
+
+/* ── Skills ── */
+.skills-table {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  width: 100%;
+}
+.skills-table td {
+  padding: 5px 0;
+  vertical-align: top;
+}
+.skills-table td:first-child {
+  width: 120px;
+  color: var(--text-mid);
+  font-weight: 400;
+  padding-right: 16px;
+  white-space: nowrap;
+}
+.skills-table td:last-child {
+  color: var(--text);
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 24px;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+}
+footer a {
+  color: var(--text-mid);
+}
+footer a:hover { color: var(--accent); text-decoration: none; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  main { padding: 40px 20px 64px; }
+  header h1 { font-size: 1.6rem; }
+  .skills-table td:first-child { width: 100px; }
+}
