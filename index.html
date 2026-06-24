@@ -12,145 +12,126 @@
 </head>
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <span class="nav-name">Kaidi Zha</span>
-      <ul>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="assets/CV.pdf" target="_blank" rel="noopener">CV</a></li>
-        <li><a href="assets/personal-statement.pdf" target="_blank" rel="noopener">Statement</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="layout">
 
-  <main>
-
-    <!-- ── Header ── -->
-    <header id="top">
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
       <h1>Kaidi Zha</h1>
-      <p class="role">Undergraduate Researcher &nbsp;·&nbsp; AI &amp; Machine Learning</p>
-      <p class="affil">Department of Physics, Tsinghua University</p>
+      <p class="role">Undergraduate Researcher</p>
+      <p class="role">AI &amp; Machine Learning</p>
+      <p class="affil">Department of Physics<br>Tsinghua University</p>
 
-      <p class="bio">
-        I am a second-year undergraduate at Tsinghua University, where I study Mathematics and Physics.
-        My research sits at the intersection of <em>efficient deep learning</em> and <em>data-centric AI</em>—
-        building systems that are not only capable, but trainable and deployable under real resource constraints.
-        I am broadly interested in model compression, hardware-aware architecture design, and principled data selection.
-      </p>
+      <nav class="side-nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+      </nav>
 
-      <p class="contact-line">
-        <a href="mailto:ckd23@mails.tsinghua.edu.cn">ckd23@mails.tsinghua.edu.cn</a>
-        <span class="sep">/</span>
-        <a href="tel:+8614790518086">(+86) 147-9051-8086</a>
-        <span class="sep">/</span>
-        <a href="https://github.com/Kaidi-Zha" target="_blank" rel="noopener">GitHub</a>
-        <span class="sep">/</span>
-        <a href="assets/CV.pdf" target="_blank" rel="noopener">CV</a>
-        <span class="sep">/</span>
-        <a href="assets/personal-statement.pdf" target="_blank" rel="noopener">Personal Statement</a>
-      </p>
-    </header>
+      <ul class="contact-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          <a href="mailto:ckd23@mails.tsinghua.edu.cn">ckd23@mails.tsinghua.edu.cn</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+8614790518086">(+86) 147-9051-8086</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <a href="https://github.com/Kaidi-Zha" target="_blank" rel="noopener">Kaidi-Zha</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <a href="assets/CV.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <a href="assets/personal-statement.pdf" target="_blank" rel="noopener">Personal Statement</a>
+        </li>
+      </ul>
+    </aside>
 
-    <hr>
+    <!-- ── Main content ── -->
+    <main>
 
-    <!-- ── Research Interests ── -->
-    <section>
-      <h2>Research Interests</h2>
-      <p>
-        Efficient Deep Learning &nbsp;·&nbsp;
-        Model Architecture Design &nbsp;·&nbsp;
-        Data-Centric AI &nbsp;·&nbsp;
-        Multimodal Large Models &nbsp;·&nbsp;
-        Reinforcement Learning
-      </p>
-    </section>
+      <section id="about">
+        <p class="bio">
+          I am a second-year undergraduate at Tsinghua University, where I study Mathematics and Physics.
+          My research sits at the intersection of <em>efficient deep learning</em> and <em>data-centric AI</em>—
+          building systems that are not only capable, but trainable and deployable under real resource constraints.
+          I am broadly interested in model compression, hardware-aware architecture design, and principled data selection.
+        </p>
 
-    <hr>
+        <p class="interests-line">
+          <span class="label">Research Interests</span>
+          Efficient Deep Learning &nbsp;·&nbsp;
+          Model Architecture Design &nbsp;·&nbsp;
+          Data-Centric AI &nbsp;·&nbsp;
+          Multimodal Large Models &nbsp;·&nbsp;
+          Reinforcement Learning
+        </p>
+      </section>
 
-    <!-- ── Research ── -->
-    <section id="research">
-      <h2>Research</h2>
+      <hr>
 
-      <div class="research-item">
-        <div class="ri-title">Model Compression: DiT Post-Training Quantization</div>
-        <div class="ri-meta">
-          Supervised by <a href="#">Prof. Yuan Meng</a>, Dept. of CS&amp;Tech, Tsinghua University
-          &nbsp;·&nbsp; Jun. 2025 – Present
+      <section id="research">
+        <h2>Research</h2>
+
+        <div class="entry">
+          <div class="entry-title">Model Compression: DiT Post-Training Quantization</div>
+          <div class="entry-meta">Supervised by Prof. Yuan Meng, Dept. of CS&amp;Tech, Tsinghua University &nbsp;·&nbsp; Jun. 2025 – Present</div>
         </div>
-      </div>
 
-      <div class="research-item">
-        <div class="ri-title">ArchEGraph: Large-Scale Graph Datasets for Building Energy Modeling</div>
-        <div class="ri-meta">
-          Supervised by Borong Lin &amp; Yihui Li, School of Architecture, Tsinghua University
-          &nbsp;·&nbsp; Apr. 2026 – Present
+        <div class="entry">
+          <div class="entry-title">ArchEGraph: Large-Scale Graph Datasets for Building Energy Modeling</div>
+          <div class="entry-meta">Supervised by Borong Lin &amp; Yihui Li, School of Architecture, Tsinghua University &nbsp;·&nbsp; Apr. 2026 – Present</div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <hr>
+      <hr>
 
-    <!-- ── Publications ── -->
-    <section id="publications">
-      <h2>Publications</h2>
+      <section id="publications">
+        <h2>Publications</h2>
 
-      <div class="pub-item">
-        <p class="pub-title">
-          ArchEGraph: A Large-Scale Graph Dataset for Geometry–Topology–Physics Aligned Building Energy Modeling
-        </p>
-        <p class="pub-authors">
-          Yihui Li, Yihui Chen, <strong>Kaidi Zha</strong>, Xiaoyue Yan, Zhexuan Yu,
-          Shiqi Dai, Jun Xiao, Jun Yin, Ramon Elias Weber, Borong Lin
-        </p>
-        <p class="pub-venue">
-          <em>Under review</em>, D&amp;B Track, 2026
-        </p>
-      </div>
-    </section>
+        <div class="pub">
+          <p class="pub-title">ArchEGraph: A Large-Scale Graph Dataset for Geometry–Topology–Physics Aligned Building Energy Modeling</p>
+          <p class="pub-authors">Yihui Li, Yihui Chen, <strong>Kaidi Zha</strong>, Xiaoyue Yan, Zhexuan Yu, Shiqi Dai, Jun Xiao, Jun Yin, Ramon Elias Weber, Borong Lin</p>
+          <p class="pub-venue"><em>Under review</em>, D&amp;B Track, 2026</p>
+        </div>
+      </section>
 
-    <hr>
+      <hr>
 
-    <!-- ── Education ── -->
-    <section id="education">
-      <h2>Education</h2>
+      <section id="education">
+        <h2>Education</h2>
 
-      <div class="edu-item">
-        <div class="edu-degree">B.S. in Mathematics and Physics</div>
-        <div class="edu-dept">Department of Physics, Tsinghua University &nbsp;·&nbsp; 2023 – 2027 (expected)</div>
-      </div>
-    </section>
+        <div class="entry">
+          <div class="entry-title">B.S. in Mathematics and Physics</div>
+          <div class="entry-meta">Department of Physics, Tsinghua University &nbsp;·&nbsp; 2023 – 2027 (expected)</div>
+        </div>
+      </section>
 
-    <hr>
+      <hr>
 
-    <!-- ── Skills ── -->
-    <section>
-      <h2>Skills</h2>
-      <table class="skills-table">
-        <tr>
-          <td>Programming</td>
-          <td>Python, C/C++, MATLAB, LaTeX</td>
-        </tr>
-        <tr>
-          <td>Frameworks</td>
-          <td>PyTorch, JAX</td>
-        </tr>
-        <tr>
-          <td>Tools</td>
-          <td>Git, Linux, Docker</td>
-        </tr>
-      </table>
-    </section>
+      <section id="skills">
+        <h2>Skills</h2>
+        <table class="skills-table">
+          <tr><td>Programming</td><td>Python, C/C++, MATLAB, LaTeX</td></tr>
+          <tr><td>Frameworks</td><td>PyTorch, JAX</td></tr>
+          <tr><td>Tools</td><td>Git, Linux, Docker</td></tr>
+        </table>
+      </section>
 
-  </main>
+    </main>
+  </div>
 
   <footer>
     <p>Kaidi Zha &nbsp;·&nbsp; Department of Physics, Tsinghua University &nbsp;·&nbsp;
       <a href="mailto:ckd23@mails.tsinghua.edu.cn">ckd23@mails.tsinghua.edu.cn</a>
-      &nbsp;·&nbsp; <a href="tel:+8614790518086">(+86) 147-9051-8086</a>
     </p>
   </footer>
 
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
