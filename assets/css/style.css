@@ -222,6 +222,11 @@ h2 {
   font-size: 0.9rem;
   color: var(--text-mid);
 }
+.pub-note {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
 
 /* ── Skills ── */
 .skills-table {
