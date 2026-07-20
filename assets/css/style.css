@@ -210,6 +210,27 @@ h2 {
 .entry li { margin-bottom: 4px; }
 .entry li::marker { color: var(--accent); }
 
+/* ── Project demo gallery ── */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.demo-grid figure { margin: 0; }
+.demo-grid img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.demo-grid figcaption {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
 /* ── Publications ── */
 .pub { margin-bottom: 20px; }
 .pub-title {
