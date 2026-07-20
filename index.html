@@ -108,8 +108,9 @@
           <div class="entry-meta">Pattern Recognition &amp; Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026</div>
           <div class="entry-links"><a href="https://github.com/Kaidi-Zha/easy-GPT" target="_blank" rel="noopener">Code</a> &nbsp;·&nbsp; <a href="assets/projects/train-your-own-gpt.pdf" target="_blank" rel="noopener">Report</a></div>
           <ul>
-            <li>Implemented a GPT-style decoder (RoPE, SwiGLU, pre-norm blocks) from scratch in PyTorch, reaching 105.15 validation PPL on Penn Treebank; led the scaling-law study (0.77M–5.46M params) and controlled ablations of QK-norm, attention gating and value embeddings.</li>
-            <li>Fine-tuned Qwen2.5-0.5B with LoRA (0.89% trainable parameters) on arXiv abstracts; compared autoregressive vs. masked-diffusion LMs (MDLM, LLaDA) with A100 throughput/latency benchmarks.</li>
+            <li><strong>Motivation:</strong> understanding why language models scale—and when architectural tweaks and adaptation genuinely help—requires controlled experiments built from first principles, not off-the-shelf pipelines.</li>
+            <li><strong>Contribution:</strong> built the full stack from scratch (GPT-style decoder with RoPE, SwiGLU, pre-norm blocks, trained on Penn Treebank) and led the scaling-law and fine-tuning studies (team of 2): 5-config sweep × 3 seeds, scaling over 0.77M–5.46M params, controlled ablations of QK-norm / attention gating / value embeddings, LoRA fine-tuning of Qwen2.5-0.5B (0.89% params) with pre-registered evaluation, and AR vs. masked-diffusion LM (MDLM, LLaDA) comparison with A100 benchmarks.</li>
+            <li><strong>Results:</strong> 105.15 validation PPL for the best scratch model; attention gating is the most reliable architectural gain (−2.02 PPL); LoRA adaptation eliminates exam-style outputs (4/15 → 0/15) with 8× more abstract-style continuations.</li>
           </ul>
           <div class="demo-grid">
             <figure class="span-all">
@@ -148,8 +149,9 @@
           <div class="entry-meta">Reinforcement Learning &amp; Control, course project (team of 8) &nbsp;·&nbsp; Spring 2026</div>
           <div class="entry-links"><a href="assets/projects/aider.pdf" target="_blank" rel="noopener">Report</a></div>
           <ul>
-            <li>Team built DEAR, an EMA-anchored evidential regression operator, and AIDER, which damps value-overestimation impulses without heuristic annealing—best average performance on the DeepMind Control Suite among 7 model-free baselines; deployed on a 4WD vehicle speed-tracking task (RMSE 0.349 m/s, ~1.5% error).</li>
-            <li>Personally explored integrating the framework with diffusion / normalizing-flow policies for multimodal action distributions.</li>
+            <li><strong>Motivation:</strong> off-policy RL suffers a transient value-overestimation surge (the <em>aleatoric impulse</em>) rooted in intrinsic estimation noise; heuristic annealing schedules are hyperparameter-sensitive and asymptotically inconsistent.</li>
+            <li><strong>Contribution:</strong> the team proposed DEAR, an EMA-anchored evidential regression operator that learns higher-order aleatoric uncertainty end-to-end, and AIDER, which turns it into pessimistic targets and exploration bonuses with no annealing schedule; I explored extending the framework to diffusion / normalizing-flow multimodal policies.</li>
+            <li><strong>Results:</strong> best average performance on the DeepMind Control Suite among 7 model-free baselines (Humanoid-run return 575 → 648 over the predecessor); deployed on a 4WD vehicle speed-tracking task with RMSE 0.349 m/s (~1.5% error).</li>
           </ul>
           <div class="demo-grid">
             <figure>
@@ -167,8 +169,9 @@
           <div class="entry-title">CPU Path Tracer: A Physically-Based Renderer in C++</div>
           <div class="entry-meta">Fundamentals of Computer Graphics, individual course project &nbsp;·&nbsp; Spring 2026</div>
           <ul>
-            <li>Built a renderer from scratch: Whitted ray tracing and Monte Carlo path tracing with next-event estimation, Cook–Torrance glossy BRDF, Schlick Fresnel, depth of field, and BVH acceleration.</li>
-            <li>Engineered deterministic lock-free multithreading (std::thread) with a 49× speedup on 64 threads and byte-identical output to the serial renderer.</li>
+            <li><strong>Motivation:</strong> physically-based rendering is Monte Carlo estimation of the rendering equation—naive sampling converges slowly, so variance reduction and acceleration structures are what make it practical.</li>
+            <li><strong>Contribution:</strong> independently built a complete CPU renderer in C++ bridging Whitted ray tracing and Monte Carlo path tracing—next-event estimation, Cook–Torrance glossy BRDF with Schlick Fresnel, Russian-roulette termination, BVH, depth of field—plus deterministic per-pixel seeding with lock-free row dispatch.</li>
+            <li><strong>Results:</strong> 49× speedup on 64 threads with byte-identical output to the serial renderer; every effect validated by controlled ablation renders (NEE on/off, Fresnel, roughness sweep, total internal reflection).</li>
           </ul>
           <div class="demo-grid">
             <figure>
