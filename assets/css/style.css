@@ -200,6 +200,16 @@ h2 {
   color: var(--text-mid);
 }
 
+/* ── Entry bullet lists ── */
+.entry ul {
+  margin: 7px 0 0 18px;
+  font-size: 0.87rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.entry li { margin-bottom: 4px; }
+.entry li::marker { color: var(--accent); }
+
 /* ── Publications ── */
 .pub { margin-bottom: 20px; }
 .pub-title {
