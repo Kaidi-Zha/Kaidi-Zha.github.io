@@ -18,6 +18,7 @@
     <aside class="sidebar">
       <img src="assets/avatar.jpg" alt="Kaidi Zha" class="avatar">
       <h1>Kaidi Zha</h1>
+      <p class="role" lang="zh">查恺迪</p>
       <p class="role">Undergraduate Researcher</p>
       <p class="role">Generative Models &amp; Inference Acceleration</p>
       <p class="affil">Department of Physics<br>Tsinghua University</p>
@@ -58,7 +59,7 @@
 
       <section id="about">
         <p class="bio">
-          I am a third-year undergraduate at Tsinghua University, where I study Mathematics and Physics.
+          I am Kaidi Zha (<span lang="zh">查恺迪</span>), a third-year undergraduate at Tsinghua University, where I study Mathematics and Physics.
           My research focuses on <em>generative models</em> and <em>inference acceleration</em>—
           making large diffusion and language models faster and cheaper to deploy through
           quantization, mixed-precision inference, and efficient system design,
@@ -92,7 +93,6 @@
           <ul>
             <li>Second author of the manuscript and main contributor to the benchmark experiments of a dataset spanning 5,481 buildings and 49,326 validated simulation cases (&gt;1.33×10<sup>5</sup> space nodes, 1.44×10<sup>6</sup> face nodes).</li>
             <li>Designed and ran cross-building and cross-climate generalization benchmarks over 7 model families (XGBoost, DeepSets, Set Transformer, Perceiver, GATv2, TransformerConv, GraphGPS) on graph-reconstruction and load-prediction tasks.</li>
-            <li>Paper under review at the NeurIPS 2026 Datasets &amp; Benchmarks Track.</li>
           </ul>
         </div>
       </section>
@@ -104,7 +104,7 @@
 
         <div class="entry">
           <div class="entry-title">TrainYourOwnGPT: Building &amp; Analyzing GPT-Style Language Models from Scratch</div>
-          <div class="entry-meta">Pattern Recognition &amp; Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; <a href="assets/projects/train-your-own-gpt.pdf" target="_blank" rel="noopener">Report</a></div>
+          <div class="entry-meta">Pattern Recognition &amp; Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; <a href="https://github.com/Kaidi-Zha/easy-GPT" target="_blank" rel="noopener">Code</a> &nbsp;·&nbsp; <a href="assets/projects/train-your-own-gpt.pdf" target="_blank" rel="noopener">Report</a></div>
           <ul>
             <li>Implemented a GPT-style decoder (RoPE, SwiGLU, pre-norm blocks) from scratch in PyTorch, reaching 105.15 validation PPL on Penn Treebank; led the scaling-law study (0.77M–5.46M params) and controlled ablations of QK-norm, attention gating and value embeddings.</li>
             <li>Fine-tuned Qwen2.5-0.5B with LoRA (0.89% trainable parameters) on arXiv abstracts; compared autoregressive vs. masked-diffusion LMs (MDLM, LLaDA) with A100 throughput/latency benchmarks.</li>
@@ -168,16 +168,20 @@
           </ul>
           <div class="demo-grid">
             <figure>
-              <img src="assets/img/pathtracer-dof.jpg" alt="Depth-of-field still life rendered by the CPU path tracer" loading="lazy">
+              <a href="assets/img/pathtracer-dof.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-dof.jpg" alt="Depth-of-field still life rendered by the CPU path tracer" loading="lazy"></a>
               <figcaption>Depth-of-field still life — Monte Carlo path tracing, 1024 spp</figcaption>
             </figure>
             <figure>
-              <img src="assets/img/pathtracer-materials.jpg" alt="Material showcase with mirror, glass and glossy surfaces" loading="lazy">
+              <a href="assets/img/pathtracer-materials.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-materials.jpg" alt="Material showcase with mirror, glass and glossy surfaces" loading="lazy"></a>
               <figcaption>Material showcase — mirror / glass / Cook–Torrance glossy</figcaption>
             </figure>
             <figure>
-              <img src="assets/img/pathtracer-glossy.jpg" alt="Glossy roughness sweep on the Stanford Bunny" loading="lazy">
+              <a href="assets/img/pathtracer-glossy.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-glossy.jpg" alt="Glossy roughness sweep on the Stanford Bunny" loading="lazy"></a>
               <figcaption>Glossy roughness sweep on the Stanford Bunny</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/img/pathtracer-tir.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-tir.jpg" alt="Refraction and total internal reflection through water and glass spheres" loading="lazy"></a>
+              <figcaption>Refraction &amp; total internal reflection — water (η=1.33) vs. glass (η=1.50)</figcaption>
             </figure>
           </div>
         </div>
