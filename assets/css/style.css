@@ -3,8 +3,8 @@
   --cream:        #FAF8F5;
   --border:       #E2D9D0;
   --text:         #1C1410;
-  --text-mid:     #6B5C52;
-  --text-light:   #9C8E87;
+  --text-mid:     #54463D;
+  --text-light:   #7E6F67;
   --accent:       #C8603A;
   --accent-hover: #A84D2C;
   --sidebar-w:    230px;
@@ -71,13 +71,13 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 
 .role {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-mid);
   line-height: 1.5;
 }
 
 .affil {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-mid);
   margin-top: 10px;
   line-height: 1.6;
@@ -93,7 +93,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 
 .side-nav a {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-mid);
   padding: 3px 0;
   transition: color 0.15s;
@@ -124,7 +124,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 
 .contact-list a {
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   color: var(--text-mid);
   word-break: break-all;
   line-height: 1.4;
@@ -139,7 +139,7 @@ main {
 /* ── Bio ── */
 .bio {
   font-family: var(--font-reading);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: var(--text);
   line-height: 1.9;
   margin-bottom: 22px;
@@ -152,7 +152,7 @@ main {
 
 .interests-line {
   font-family: var(--font-reading);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-mid);
   line-height: 1.8;
 }
@@ -176,7 +176,7 @@ hr {
 
 /* ── Section headings ── */
 h2 {
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -189,21 +189,28 @@ h2 {
   margin-bottom: 28px;
 }
 .entry-title {
-  font-size: 0.93rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text);
   margin-bottom: 3px;
 }
 .entry-meta {
   font-family: var(--font-reading);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-mid);
+}
+
+/* ── Entry resource links (Code / Report) ── */
+.entry-links {
+  font-size: 0.88rem;
+  margin-top: 3px;
+  color: var(--text-light);
 }
 
 /* ── Entry bullet lists ── */
 .entry ul {
   margin: 7px 0 0 18px;
-  font-size: 0.87rem;
+  font-size: 0.95rem;
   color: var(--text-mid);
   line-height: 1.7;
 }
@@ -236,7 +243,7 @@ h2 {
   margin: 0 auto;
 }
 .demo-grid figcaption {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--text-light);
   margin-top: 4px;
   line-height: 1.4;
@@ -273,7 +280,7 @@ h2 {
 /* ── Skills ── */
 .skills-table {
   border-collapse: collapse;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
 }
 .skills-table td {
   padding: 4px 0;
@@ -291,7 +298,7 @@ footer {
   border-top: 1px solid var(--border);
   text-align: center;
   padding: 20px;
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   color: var(--text-light);
 }
 footer a { color: var(--text-light); }
