@@ -109,6 +109,16 @@
             <li>Implemented a GPT-style decoder (RoPE, SwiGLU, pre-norm blocks) from scratch in PyTorch, reaching 105.15 validation PPL on Penn Treebank; led the scaling-law study (0.77M–5.46M params) and controlled ablations of QK-norm, attention gating and value embeddings.</li>
             <li>Fine-tuned Qwen2.5-0.5B with LoRA (0.89% trainable parameters) on arXiv abstracts; compared autoregressive vs. masked-diffusion LMs (MDLM, LLaDA) with A100 throughput/latency benchmarks.</li>
           </ul>
+          <div class="demo-grid">
+            <figure class="span-all">
+              <a href="assets/img/gpt-scaling-laws.png" target="_blank" rel="noopener"><img src="assets/img/gpt-scaling-laws.png" alt="Validation loss vs. parameter count across architecture variants" loading="lazy"></a>
+              <figcaption>Scaling study — validation loss vs. trainable parameters across QK-norm / attention-gating / value-embedding variants (3 seeds)</figcaption>
+            </figure>
+            <figure class="span-all">
+              <a href="assets/img/gpt-training-curves.png" target="_blank" rel="noopener"><img src="assets/img/gpt-training-curves.png" alt="Training loss and perplexity curves of the scratch-trained GPT" loading="lazy"></a>
+              <figcaption>Best scratch configuration — training loss and train/validation perplexity on Penn Treebank (final valid PPL 105.15)</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="entry">
@@ -118,6 +128,16 @@
             <li>Implemented the SPLIT family of near-optimal sparse decision trees and benchmarked against CART on 12 datasets × 5 seeds, winning on COMPAS, HELOC, Heart, and Law School.</li>
             <li>Proposed Leaf-Pareto Fair Recalibration (LPFR), a deployable leaf-level post-processing method; label-aware calibration cuts the demographic-parity gap from 0.17 to 0.003 on Adult.</li>
           </ul>
+          <div class="demo-grid">
+            <figure class="span-all">
+              <a href="assets/img/fairsplit-accuracy-time.png" target="_blank" rel="noopener"><img src="assets/img/fairsplit-accuracy-time.png" alt="Test accuracy vs. training time on six benchmarks" loading="lazy"></a>
+              <figcaption>Accuracy–time trade-off — CART vs. SPLIT-greedy / SPLIT-optimal / ReSPLIT under three fairness modes (5 seeds, 95% CI)</figcaption>
+            </figure>
+            <figure class="span-all">
+              <a href="assets/img/fairsplit-fairness-compas.png" target="_blank" rel="noopener"><img src="assets/img/fairsplit-fairness-compas.png" alt="Fairness metrics on COMPAS (race) vs. training time" loading="lazy"></a>
+              <figcaption>Fairness on COMPAS (race) — DI ratio, equal-opportunity and statistical-parity differences; calibration drives SP gap to ≈0</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="entry">
@@ -127,6 +147,16 @@
             <li>Team built DEAR, an EMA-anchored evidential regression operator, and AIDER, which damps value-overestimation impulses without heuristic annealing—best average performance on the DeepMind Control Suite among 7 model-free baselines; deployed on a 4WD vehicle speed-tracking task (RMSE 0.349 m/s, ~1.5% error).</li>
             <li>Personally explored integrating the framework with diffusion / normalizing-flow policies for multimodal action distributions.</li>
           </ul>
+          <div class="demo-grid">
+            <figure>
+              <a href="assets/img/aider-dear-fit.png" target="_blank" rel="noopener"><img src="assets/img/aider-dear-fit.png" alt="DEAR vs. DER final fit comparison on the toy regression task" loading="lazy"></a>
+              <figcaption>Toy regression — DEAR (left) tracks the true curve with a tighter predictive band than DER (right), RMSE 18.9 vs. 23.6</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/img/aider-uncertainty.png" target="_blank" rel="noopener"><img src="assets/img/aider-uncertainty.png" alt="Uncertainty decomposition of DEAR and DER" loading="lazy"></a>
+              <figcaption>Uncertainty decomposition — DEAR's high-order std stays compact in-domain and rises smoothly out-of-distribution</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="entry">

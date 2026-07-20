@@ -186,7 +186,7 @@ h2 {
 
 /* ── Generic entry (research, education) ── */
 .entry {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 .entry-title {
   font-size: 0.93rem;
@@ -213,16 +213,27 @@ h2 {
 /* ── Project demo gallery ── */
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
   margin-top: 10px;
 }
 .demo-grid figure { margin: 0; }
+.demo-grid a { display: block; }
 .demo-grid img {
   width: 100%;
   display: block;
   border-radius: 6px;
   border: 1px solid var(--border);
+  background: #fff;
+  transition: box-shadow 0.15s ease;
+}
+.demo-grid a:hover img {
+  box-shadow: 0 2px 10px rgba(28, 20, 16, 0.12);
+}
+.demo-grid .span-all { grid-column: 1 / -1; }
+.demo-grid .span-all img {
+  max-width: 92%;
+  margin: 0 auto;
 }
 .demo-grid figcaption {
   font-size: 0.72rem;
