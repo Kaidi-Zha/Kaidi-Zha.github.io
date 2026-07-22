@@ -581,11 +581,11 @@ footer a:hover { color: var(--accent); text-decoration: none; }
 /* ── Home: project entry — left thumbnail, right title ── */
 .project-entry {
   display: flex;
-  gap: 22px;
+  gap: 26px;
   align-items: flex-start;
 }
 .entry-thumb {
-  flex: 0 0 196px;
+  flex: 0 0 242px;
   display: grid;
   gap: 8px;
   margin-top: 4px;
@@ -604,6 +604,13 @@ footer a:hover { color: var(--accent); text-decoration: none; }
   transform: translateY(-2px);
 }
 .entry-body { flex: 1; min-width: 0; }
+.entry-linkrow { margin-top: 6px; }
+.entry-desc {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.68;
+  margin-top: 8px;
+}
 
 @media (max-width: 700px) {
   .project-entry { flex-direction: column; gap: 12px; }
