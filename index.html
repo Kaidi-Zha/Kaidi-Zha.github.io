@@ -80,21 +80,13 @@
         <div class="entry">
           <div class="entry-title">Q-DiT: Accurate Post-Training Quantization for Diffusion Transformers</div>
           <div class="entry-meta">Research Assistant, supervised by Prof. Yuan Meng, Dept. of CS&amp;Tech, Tsinghua University &nbsp;·&nbsp; Jun. 2025 – Present</div>
-          <ul>
-            <li><strong>Motivation:</strong> uniform-precision PTQ wastes the bit budget on diffusion Transformers, whose quantization sensitivity varies sharply across denoising timesteps and layers—bits should be spent where the loss surface is steepest.</li>
-            <li><strong>Method:</strong> co-designed a timestep-aware, layer-wise mixed-precision PTQ framework grounded in second-order analysis—Hessian trace of the denoising loss scores per-timestep sensitivity, GPTQ (Optimal Brain Surgeon) error bounds per-layer weight perturbations, and Fisher information ranks layer importance—turning bit allocation into a constrained optimization solved exactly by dynamic programming under a global W4A4 budget.</li>
-            <li><strong>System &amp; Results:</strong> independently refactored the codebase into <em>qdiffusers</em>, a modular YAML-driven pipeline adapted to 7 DiT-family models (DiT-XL/2, FLUX.2, PixArt-Σ, OpenSora, Qwen-Image, HunyuanVideo, Wan2.2) with multi-GPU parallel GPTQ; led all ImageNet-1K experiments—W4A4 achieves near-lossless FID 7.76 on DiT-XL/2 256×256, and FID 25.22 on FLUX.2-klein-4B, surpassing the FP16 baseline (26.08).</li>
-          </ul>
+          <p class="entry-brief">A timestep-aware, layer-wise mixed-precision PTQ framework for diffusion Transformers, driven by second-order sensitivity analysis (Hessian trace, GPTQ error bounds, Fisher information); near-lossless W4A4 across 7 DiT-family models—FID 7.76 on DiT-XL/2 256×256, and FID 25.22 on FLUX.2-klein-4B, surpassing the FP16 baseline (26.08).</p>
         </div>
 
         <div class="entry">
           <div class="entry-title">ArchEGraph: A Large-Scale Graph Dataset for Geometry–Topology–Physics Aligned Building Energy Modeling</div>
           <div class="entry-meta">Research Assistant, supervised by Prof. Borong Lin, School of Architecture, Tsinghua University; with UC Berkeley &amp; MIT &nbsp;·&nbsp; Apr. 2026 – Present</div>
-          <ul>
-            <li><strong>Role:</strong> second author of the manuscript; independently designed and executed the benchmark experiments for a dataset of 5,481 buildings and 49,326 validated simulation cases (&gt;1.33×10<sup>5</sup> space nodes, 1.44×10<sup>6</sup> face nodes).</li>
-            <li><strong>Contributions:</strong> built the evaluation protocols for two benchmark tasks—reconstructing zone topology from polygonal meshes (M2G) and topology-informed zone-level load prediction—and benchmarked 7 model families (XGBoost, DeepSets, Set Transformer, Perceiver, GATv2, TransformerConv, GraphGPS) under cross-building and cross-climate splits.</li>
-            <li><strong>Findings:</strong> graph-based surrogates learn the geometry–topology–physics coupling well in-distribution, while cross-climate and cross-layout generalization remains the key bottleneck—empirically validating the dataset's goal of exposing geometric and climatic shift.</li>
-          </ul>
+          <p class="entry-brief">Second author; designed and executed the benchmark suite for a building-energy graph dataset of 5,481 buildings and 49,326 validated simulation cases—evaluating 7 model families on topology reconstruction (M2G) and zone-level load prediction under cross-building and cross-climate shifts.</p>
         </div>
       </section>
 
@@ -105,91 +97,34 @@
 
         <div class="entry">
           <div class="entry-title">TrainYourOwnGPT: Building &amp; Analyzing GPT-Style Language Models from Scratch</div>
-          <div class="entry-meta">Pattern Recognition &amp; Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026</div>
-          <div class="entry-links"><a href="https://github.com/Kaidi-Zha/easy-GPT" target="_blank" rel="noopener">Code</a> &nbsp;·&nbsp; <a href="assets/projects/train-your-own-gpt.pdf" target="_blank" rel="noopener">Report</a></div>
-          <ul>
-            <li><strong>Motivation:</strong> understanding why language models scale—and when architectural tweaks and adaptation genuinely help—requires controlled experiments built from first principles, not off-the-shelf pipelines.</li>
-            <li><strong>Contribution:</strong> built the full stack from scratch (GPT-style decoder with RoPE, SwiGLU, pre-norm blocks, trained on Penn Treebank) and led the scaling-law and fine-tuning studies (team of 2): 5-config sweep × 3 seeds, scaling over 0.77M–5.46M params, controlled ablations of QK-norm / attention gating / value embeddings, LoRA fine-tuning of Qwen2.5-0.5B (0.89% params) with pre-registered evaluation, and AR vs. masked-diffusion LM (MDLM, LLaDA) comparison with A100 benchmarks.</li>
-            <li><strong>Results:</strong> 105.15 validation PPL for the best scratch model; attention gating is the most reliable architectural gain (−2.02 PPL); LoRA adaptation eliminates exam-style outputs (4/15 → 0/15) with 8× more abstract-style continuations.</li>
-          </ul>
-          <div class="demo-grid">
-            <figure class="span-all">
-              <a href="assets/img/gpt-scaling-laws.png" target="_blank" rel="noopener"><img src="assets/img/gpt-scaling-laws.png" alt="Validation loss vs. parameter count across architecture variants" loading="lazy"></a>
-              <figcaption>Scaling study — validation loss vs. trainable parameters across QK-norm / attention-gating / value-embedding variants (3 seeds)</figcaption>
-            </figure>
-            <figure class="span-all">
-              <a href="assets/img/gpt-training-curves.png" target="_blank" rel="noopener"><img src="assets/img/gpt-training-curves.png" alt="Training loss and perplexity curves of the scratch-trained GPT" loading="lazy"></a>
-              <figcaption>Best scratch configuration — training loss and train/validation perplexity on Penn Treebank (final valid PPL 105.15)</figcaption>
-            </figure>
+          <div class="entry-meta">Pattern Recognition &amp; Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; <a class="project-link" href="projects/train-your-own-gpt.html">[ project ]</a></div>
+          <div class="thumb-grid">
+            <a href="projects/train-your-own-gpt.html"><img src="assets/img/gpt-scaling-laws.png" alt="Validation loss vs. parameter count across architecture variants" loading="lazy"></a>
           </div>
         </div>
 
         <div class="entry">
           <div class="entry-title">fair-SPLIT: Near-Optimal Decision Trees for Accuracy, Sparsity, and Fairness</div>
-          <div class="entry-meta">Statistical Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026</div>
-          <div class="entry-links"><a href="https://github.com/illusionsin30/fair-SPLIT" target="_blank" rel="noopener">Code</a> &nbsp;·&nbsp; <a href="assets/projects/fair-split.pdf" target="_blank" rel="noopener">Report</a></div>
-          <ul>
-            <li>Greedy tree induction (CART) is myopic and offers no fairness guarantee; implemented the SPLIT family—dynamic-programming lookahead that provably optimizes the most discriminative top layers before greedy completion—and benchmarked it against CART on 12 public datasets (6 with sensitive attributes) × 5 seeds, measuring accuracy, training time, and SPD/DI/EOD metrics; SPLIT variants win on COMPAS, HELOC, Heart, and Law School.</li>
-            <li>Proposed Leaf-Pareto Fair Recalibration (LPFR), a deployable leaf-level post-processing method; label-aware calibration cuts the demographic-parity gap from 0.17 to 0.003 on Adult.</li>
-          </ul>
-          <div class="demo-grid">
-            <figure class="span-all">
-              <a href="assets/img/fairsplit-accuracy-time.png" target="_blank" rel="noopener"><img src="assets/img/fairsplit-accuracy-time.png" alt="Test accuracy vs. training time on six benchmarks" loading="lazy"></a>
-              <figcaption>Accuracy–time trade-off — CART vs. SPLIT-greedy / SPLIT-optimal / ReSPLIT under three fairness modes (5 seeds, 95% CI)</figcaption>
-            </figure>
-            <figure class="span-all">
-              <a href="assets/img/fairsplit-fairness-compas.png" target="_blank" rel="noopener"><img src="assets/img/fairsplit-fairness-compas.png" alt="Fairness metrics on COMPAS (race) vs. training time" loading="lazy"></a>
-              <figcaption>Fairness on COMPAS (race) — DI ratio, equal-opportunity and statistical-parity differences; calibration drives SP gap to ≈0</figcaption>
-            </figure>
+          <div class="entry-meta">Statistical Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; <a class="project-link" href="projects/fair-split.html">[ project ]</a></div>
+          <div class="thumb-grid">
+            <a href="projects/fair-split.html"><img src="assets/img/fairsplit-accuracy-time.png" alt="Test accuracy vs. training time on six benchmarks" loading="lazy"></a>
           </div>
         </div>
 
         <div class="entry">
           <div class="entry-title">AIDER: Taming Aleatoric Impulse in Off-Policy Reinforcement Learning</div>
-          <div class="entry-meta">Reinforcement Learning &amp; Control, course project (team of 8) &nbsp;·&nbsp; Spring 2026</div>
-          <div class="entry-links"><a href="assets/projects/aider.pdf" target="_blank" rel="noopener">Report</a></div>
-          <ul>
-            <li><strong>Motivation:</strong> off-policy RL suffers a transient value-overestimation surge (the <em>aleatoric impulse</em>) rooted in intrinsic estimation noise; heuristic annealing schedules are hyperparameter-sensitive and asymptotically inconsistent.</li>
-            <li><strong>Contribution:</strong> the team proposed DEAR, an EMA-anchored evidential regression operator that learns higher-order aleatoric uncertainty end-to-end, and AIDER, which turns it into pessimistic targets and exploration bonuses with no annealing schedule; I explored extending the framework to diffusion / normalizing-flow multimodal policies.</li>
-            <li><strong>Results:</strong> best average performance on the DeepMind Control Suite among 7 model-free baselines (Humanoid-run return 575 → 648 over the predecessor); deployed on a 4WD vehicle speed-tracking task with RMSE 0.349 m/s (~1.5% error).</li>
-          </ul>
-          <div class="demo-grid">
-            <figure>
-              <a href="assets/img/aider-dear-fit.png" target="_blank" rel="noopener"><img src="assets/img/aider-dear-fit.png" alt="DEAR vs. DER final fit comparison on the toy regression task" loading="lazy"></a>
-              <figcaption>Toy regression — DEAR (left) tracks the true curve with a tighter predictive band than DER (right), RMSE 18.9 vs. 23.6</figcaption>
-            </figure>
-            <figure>
-              <a href="assets/img/aider-uncertainty.png" target="_blank" rel="noopener"><img src="assets/img/aider-uncertainty.png" alt="Uncertainty decomposition of DEAR and DER" loading="lazy"></a>
-              <figcaption>Uncertainty decomposition — DEAR's high-order std stays compact in-domain and rises smoothly out-of-distribution</figcaption>
-            </figure>
+          <div class="entry-meta">Reinforcement Learning &amp; Control, course project (team of 8) &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; <a class="project-link" href="projects/aider.html">[ project ]</a></div>
+          <div class="thumb-grid">
+            <a href="projects/aider.html"><img src="assets/img/aider-dear-fit.png" alt="DEAR vs. DER final fit comparison on the toy regression task" loading="lazy"></a>
           </div>
         </div>
 
         <div class="entry">
           <div class="entry-title">CPU Path Tracer: A Physically-Based Renderer in C++</div>
-          <div class="entry-meta">Fundamentals of Computer Graphics, individual course project &nbsp;·&nbsp; Spring 2026</div>
-          <ul>
-            <li><strong>Motivation:</strong> physically-based rendering is Monte Carlo estimation of the rendering equation—naive sampling converges slowly, so variance reduction and acceleration structures are what make it practical.</li>
-            <li><strong>Contribution:</strong> independently built a complete CPU renderer in C++ bridging Whitted ray tracing and Monte Carlo path tracing—next-event estimation, Cook–Torrance glossy BRDF with Schlick Fresnel, Russian-roulette termination, BVH, depth of field—plus deterministic per-pixel seeding with lock-free row dispatch.</li>
-            <li><strong>Results:</strong> 49× speedup on 64 threads with byte-identical output to the serial renderer; every effect validated by controlled ablation renders (NEE on/off, Fresnel, roughness sweep, total internal reflection).</li>
-          </ul>
-          <div class="demo-grid">
-            <figure>
-              <a href="assets/img/pathtracer-dof.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-dof.jpg" alt="Depth-of-field still life rendered by the CPU path tracer" loading="lazy"></a>
-              <figcaption>Depth-of-field still life — Monte Carlo path tracing, 1024 spp</figcaption>
-            </figure>
-            <figure>
-              <a href="assets/img/pathtracer-materials.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-materials.jpg" alt="Material showcase with mirror, glass and glossy surfaces" loading="lazy"></a>
-              <figcaption>Material showcase — mirror / glass / Cook–Torrance glossy</figcaption>
-            </figure>
-            <figure>
-              <a href="assets/img/pathtracer-glossy.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-glossy.jpg" alt="Glossy roughness sweep on the Stanford Bunny" loading="lazy"></a>
-              <figcaption>Glossy roughness sweep on the Stanford Bunny</figcaption>
-            </figure>
-            <figure>
-              <a href="assets/img/pathtracer-tir.jpg" target="_blank" rel="noopener"><img src="assets/img/pathtracer-tir.jpg" alt="Refraction and total internal reflection through water and glass spheres" loading="lazy"></a>
-              <figcaption>Refraction &amp; total internal reflection — water (η=1.33) vs. glass (η=1.50)</figcaption>
-            </figure>
+          <div class="entry-meta">Fundamentals of Computer Graphics, individual course project &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; <a class="project-link" href="projects/cpu-path-tracer.html">[ project ]</a></div>
+          <div class="thumb-grid">
+            <a href="projects/cpu-path-tracer.html"><img src="assets/img/pathtracer-tir.jpg" alt="Refraction and total internal reflection through water and glass spheres" loading="lazy"></a>
+            <a href="projects/cpu-path-tracer.html"><img src="assets/img/pathtracer-materials.jpg" alt="Material showcase with mirror, glass and glossy surfaces" loading="lazy"></a>
           </div>
         </div>
       </section>

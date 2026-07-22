@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIDER — Kaidi Zha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="project-page">
+
+  <div class="project-wrap">
+    <a class="back-link" href="../index.html">← Kaidi Zha</a>
+
+    <h1 class="project-title">AIDER: Taming Aleatoric Impulse in Off-Policy Reinforcement Learning</h1>
+    <p class="project-meta">Reinforcement Learning &amp; Control, course project (team of 8) &nbsp;·&nbsp; Spring 2026</p>
+    <p class="project-links">
+      <a href="../assets/projects/aider.pdf" target="_blank" rel="noopener">Report</a>
+    </p>
+
+    <section>
+      <h2>Motivation</h2>
+      <p>Off-policy RL suffers a transient value-overestimation surge—the <em>aleatoric impulse</em>—rooted in intrinsic estimation noise; heuristic annealing schedules are hyperparameter-sensitive and asymptotically inconsistent.</p>
+    </section>
+
+    <section>
+      <h2>Contribution</h2>
+      <p>The team proposed DEAR, an EMA-anchored evidential regression operator that learns higher-order aleatoric uncertainty end-to-end, and AIDER, which turns it into pessimistic targets and exploration bonuses with no annealing schedule; I explored extending the framework to diffusion / normalizing-flow multimodal policies.</p>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <p>Best average performance on the DeepMind Control Suite among 7 model-free baselines (Humanoid-run return 575 → 648 over the predecessor); deployed on a 4WD vehicle speed-tracking task with RMSE 0.349 m/s (~1.5% error).</p>
+      <div class="demo-grid">
+        <figure>
+          <a href="../assets/img/aider-dear-fit.png"><img src="../assets/img/aider-dear-fit.png" alt="DEAR vs. DER final fit comparison on the toy regression task" loading="lazy"></a>
+          <figcaption>Toy regression — DEAR (left) tracks the true curve with a tighter predictive band than DER (right), RMSE 18.9 vs. 23.6</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/aider-uncertainty.png"><img src="../assets/img/aider-uncertainty.png" alt="Uncertainty decomposition of DEAR and DER" loading="lazy"></a>
+          <figcaption>Uncertainty decomposition — DEAR's high-order std stays compact in-domain and rises smoothly out-of-distribution</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p style="margin-top:56px;"><a class="back-link" href="../index.html" style="margin-bottom:0;">← Back to home</a></p>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

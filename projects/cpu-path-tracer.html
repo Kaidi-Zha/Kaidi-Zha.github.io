@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPU Path Tracer — Kaidi Zha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="project-page">
+
+  <div class="project-wrap">
+    <a class="back-link" href="../index.html">← Kaidi Zha</a>
+
+    <h1 class="project-title">CPU Path Tracer: A Physically-Based Renderer in C++</h1>
+    <p class="project-meta">Fundamentals of Computer Graphics, individual course project &nbsp;·&nbsp; Spring 2026</p>
+
+    <section>
+      <h2>Motivation</h2>
+      <p>Physically-based rendering is Monte Carlo estimation of the rendering equation—naive sampling converges slowly, so variance reduction and acceleration structures are what make it practical.</p>
+    </section>
+
+    <section>
+      <h2>Contribution</h2>
+      <p>Independently built a complete CPU renderer in C++ bridging Whitted ray tracing and Monte Carlo path tracing—next-event estimation, Cook–Torrance glossy BRDF with Schlick Fresnel, Russian-roulette termination, BVH, depth of field—plus deterministic per-pixel seeding with lock-free row dispatch.</p>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <p>49× speedup on 64 threads with byte-identical output to the serial renderer; every effect validated by controlled ablation renders (NEE on/off, Fresnel, roughness sweep, total internal reflection).</p>
+      <div class="demo-grid">
+        <figure>
+          <a href="../assets/img/pathtracer-tir.jpg"><img src="../assets/img/pathtracer-tir.jpg" alt="Refraction and total internal reflection through water and glass spheres" loading="lazy"></a>
+          <figcaption>Refraction &amp; total internal reflection — water (η=1.33) vs. glass (η=1.50)</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/pathtracer-materials.jpg"><img src="../assets/img/pathtracer-materials.jpg" alt="Material showcase with mirror, glass and glossy surfaces" loading="lazy"></a>
+          <figcaption>Material showcase — mirror / glass / Cook–Torrance glossy</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/pathtracer-dof.jpg"><img src="../assets/img/pathtracer-dof.jpg" alt="Depth-of-field still life rendered by the CPU path tracer" loading="lazy"></a>
+          <figcaption>Depth-of-field still life — Monte Carlo path tracing, 1024 spp</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/pathtracer-glossy.jpg"><img src="../assets/img/pathtracer-glossy.jpg" alt="Glossy roughness sweep on the Stanford Bunny" loading="lazy"></a>
+          <figcaption>Glossy roughness sweep on the Stanford Bunny</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p style="margin-top:56px;"><a class="back-link" href="../index.html" style="margin-bottom:0;">← Back to home</a></p>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

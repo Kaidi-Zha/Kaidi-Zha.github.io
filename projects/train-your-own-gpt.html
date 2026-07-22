@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrainYourOwnGPT — Kaidi Zha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="project-page">
+
+  <div class="project-wrap">
+    <a class="back-link" href="../index.html">← Kaidi Zha</a>
+
+    <h1 class="project-title">TrainYourOwnGPT: Building &amp; Analyzing GPT-Style Language Models from Scratch</h1>
+    <p class="project-meta">Pattern Recognition &amp; Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026</p>
+    <p class="project-links">
+      <a href="https://github.com/Kaidi-Zha/easy-GPT" target="_blank" rel="noopener">Code</a>
+      &nbsp;·&nbsp;
+      <a href="../assets/projects/train-your-own-gpt.pdf" target="_blank" rel="noopener">Report</a>
+    </p>
+
+    <section>
+      <h2>Motivation</h2>
+      <p>Understanding why language models scale—and when architectural tweaks and adaptation genuinely help—requires controlled experiments built from first principles, not off-the-shelf pipelines.</p>
+    </section>
+
+    <section>
+      <h2>Contribution</h2>
+      <p>Built the full stack from scratch—a GPT-style decoder with RoPE, SwiGLU, and pre-norm blocks, trained on Penn Treebank—and led the scaling-law and fine-tuning studies (team of 2): a 5-config sweep × 3 seeds, scaling over 0.77M–5.46M params, controlled ablations of QK-norm / attention gating / value embeddings, LoRA fine-tuning of Qwen2.5-0.5B (0.89% params) with pre-registered evaluation, and an AR vs. masked-diffusion LM (MDLM, LLaDA) comparison with A100 benchmarks.</p>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <p>105.15 validation PPL for the best scratch model; attention gating is the most reliable architectural gain (−2.02 PPL); LoRA adaptation eliminates exam-style outputs (4/15 → 0/15) with 8× more abstract-style continuations.</p>
+      <div class="demo-grid">
+        <figure>
+          <a href="../assets/img/gpt-scaling-laws.png"><img src="../assets/img/gpt-scaling-laws.png" alt="Validation loss vs. parameter count across architecture variants" loading="lazy"></a>
+          <figcaption>Scaling study — validation loss vs. trainable parameters across QK-norm / attention-gating / value-embedding variants (3 seeds)</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/gpt-training-curves.png"><img src="../assets/img/gpt-training-curves.png" alt="Training loss and perplexity curves of the scratch-trained GPT" loading="lazy"></a>
+          <figcaption>Best scratch configuration — training loss and train/validation perplexity on Penn Treebank (final valid PPL 105.15)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p style="margin-top:56px;"><a class="back-link" href="../index.html" style="margin-bottom:0;">← Back to home</a></p>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

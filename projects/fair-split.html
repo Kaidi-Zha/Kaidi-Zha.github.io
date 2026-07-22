@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fair-SPLIT — Kaidi Zha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="project-page">
+
+  <div class="project-wrap">
+    <a class="back-link" href="../index.html">← Kaidi Zha</a>
+
+    <h1 class="project-title">fair-SPLIT: Near-Optimal Decision Trees for Accuracy, Sparsity, and Fairness</h1>
+    <p class="project-meta">Statistical Machine Learning, course project (team of 2) &nbsp;·&nbsp; Spring 2026</p>
+    <p class="project-links">
+      <a href="https://github.com/illusionsin30/fair-SPLIT" target="_blank" rel="noopener">Code</a>
+      &nbsp;·&nbsp;
+      <a href="../assets/projects/fair-split.pdf" target="_blank" rel="noopener">Report</a>
+    </p>
+
+    <section>
+      <h2>Motivation</h2>
+      <p>Greedy tree induction (CART) is myopic and offers no fairness guarantee—small lookahead errors at the top of the tree propagate downward, and accuracy-oriented splits can silently encode sensitive attributes.</p>
+    </section>
+
+    <section>
+      <h2>Approach</h2>
+      <p>Implemented the SPLIT family—dynamic-programming lookahead that provably optimizes the most discriminative top layers before greedy completion—and benchmarked it against CART on 12 public datasets (6 with sensitive attributes) × 5 seeds, measuring accuracy, training time, and SPD/DI/EOD metrics; SPLIT variants win on COMPAS, HELOC, Heart, and Law School.</p>
+      <p>Proposed Leaf-Pareto Fair Recalibration (LPFR), a deployable leaf-level post-processing method; label-aware calibration cuts the demographic-parity gap from 0.17 to 0.003 on Adult.</p>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <div class="demo-grid">
+        <figure>
+          <a href="../assets/img/fairsplit-accuracy-time.png"><img src="../assets/img/fairsplit-accuracy-time.png" alt="Test accuracy vs. training time on six benchmarks" loading="lazy"></a>
+          <figcaption>Accuracy–time trade-off — CART vs. SPLIT-greedy / SPLIT-optimal / ReSPLIT under three fairness modes (5 seeds, 95% CI)</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/fairsplit-fairness-compas.png"><img src="../assets/img/fairsplit-fairness-compas.png" alt="Fairness metrics on COMPAS (race) vs. training time" loading="lazy"></a>
+          <figcaption>Fairness on COMPAS (race) — DI ratio, equal-opportunity and statistical-parity differences; calibration drives SP gap to ≈0</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p style="margin-top:56px;"><a class="back-link" href="../index.html" style="margin-bottom:0;">← Back to home</a></p>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -461,3 +461,140 @@ footer a:hover { color: var(--accent); text-decoration: none; }
 }
 .lightbox-close:hover { background: rgba(255, 255, 255, 0.28); }
 .demo-grid figure a { cursor: zoom-in; }
+
+/* ── Home: compact entry list with [ project → ] link ── */
+.project-link {
+  font-size: 0.82rem;
+  color: var(--accent);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+}
+.project-link:hover { color: var(--accent-hover); text-decoration: none; }
+.project-link::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.project-link:hover::after { transform: translateX(3px); }
+
+/* ── Project detail page ── */
+.project-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 36px 90px;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 0.84rem;
+  color: var(--text-light);
+  margin-bottom: 34px;
+  transition: color 0.15s, transform 0.2s ease;
+}
+.back-link:hover { color: var(--accent); text-decoration: none; transform: translateX(-3px); }
+
+.project-title {
+  font-family: var(--font-reading);
+  font-size: 2.05rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.28;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.project-meta {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+.project-links {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-light);
+}
+.project-links a { color: var(--accent); font-weight: 500; }
+.project-links a:hover { color: var(--accent-hover); }
+
+.project-page section { margin-top: 46px; }
+
+.project-page section h2 {
+  font-family: var(--font-reading);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.project-page section h2::before {
+  content: "";
+  flex: 0 0 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0.75;
+}
+.project-page section h2::after { background: var(--border); }
+
+.project-page section p {
+  font-size: 0.97rem;
+  line-height: 1.78;
+  color: var(--text-mid);
+}
+.project-page section p strong { color: var(--text); }
+.project-page section em { color: var(--text); }
+
+/* scrolling gallery: every figure spans full width */
+.project-page .demo-grid {
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 18px;
+}
+.project-page .demo-grid .span-all img,
+.project-page .demo-grid img { max-width: 100%; }
+.project-page .demo-grid figcaption {
+  font-size: 0.82rem;
+  text-align: center;
+  margin-top: 7px;
+}
+
+@media (max-width: 700px) {
+  .project-wrap { padding: 40px 22px 64px; }
+  .project-title { font-size: 1.6rem; }
+}
+
+/* ── Home: brief intro for entries without a project page ── */
+.entry-brief {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin-top: 4px;
+  max-width: 90%;
+}
+
+/* ── Home: thumbnail preview strip (1–2 imgs, click → project page) ── */
+.thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 620px;
+}
+.thumb-grid a { display: block; }
+.thumb-grid img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.thumb-grid a:hover img {
+  box-shadow: 0 6px 18px rgba(28, 20, 16, 0.14);
+  transform: translateY(-2px);
+}
