@@ -606,9 +606,9 @@ footer a:hover { color: var(--accent); text-decoration: none; }
 .entry-body { flex: 1; min-width: 0; }
 .entry-linkrow { margin-top: 6px; }
 .entry-desc {
-  font-family: var(--font-ui);
-  font-size: 0.86rem;
-  color: var(--text-mid);
+  font-family: var(--font-reading);
+  font-size: 0.85rem;
+  color: var(--text-light);
   line-height: 1.62;
   margin-top: 8px;
 }
