@@ -462,21 +462,22 @@ footer a:hover { color: var(--accent); text-decoration: none; }
 .lightbox-close:hover { background: rgba(255, 255, 255, 0.28); }
 .demo-grid figure a { cursor: zoom-in; }
 
-/* ── Home: compact entry list with [ project → ] link ── */
+/* ── Home: compact entry list with project link ── */
 .project-link {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
+  font-weight: 600;
   color: var(--accent);
   white-space: nowrap;
   letter-spacing: 0.02em;
-  transition: color 0.15s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(200, 96, 58, 0.45);
+  transition: color 0.15s, text-decoration-color 0.15s;
 }
-.project-link:hover { color: var(--accent-hover); text-decoration: none; }
-.project-link::after {
-  content: " →";
-  display: inline-block;
-  transition: transform 0.2s ease;
+.project-link:hover {
+  color: var(--accent-hover);
+  text-decoration-color: var(--accent-hover);
 }
-.project-link:hover::after { transform: translateX(3px); }
 
 /* ── Project detail page ── */
 .project-wrap {
@@ -577,16 +578,20 @@ footer a:hover { color: var(--accent); text-decoration: none; }
   max-width: 90%;
 }
 
-/* ── Home: thumbnail preview strip (1–2 imgs, click → project page) ── */
-.thumb-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
-  max-width: 620px;
+/* ── Home: project entry — left thumbnail, right title ── */
+.project-entry {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
 }
-.thumb-grid a { display: block; }
-.thumb-grid img {
+.entry-thumb {
+  flex: 0 0 196px;
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+}
+.entry-thumb a { display: block; }
+.entry-thumb img {
   width: 100%;
   display: block;
   border-radius: 8px;
@@ -594,7 +599,17 @@ footer a:hover { color: var(--accent); text-decoration: none; }
   background: #fff;
   transition: box-shadow 0.18s ease, transform 0.18s ease;
 }
-.thumb-grid a:hover img {
+.entry-thumb a:hover img {
   box-shadow: 0 6px 18px rgba(28, 20, 16, 0.14);
   transform: translateY(-2px);
+}
+.entry-body { flex: 1; min-width: 0; }
+
+@media (max-width: 700px) {
+  .project-entry { flex-direction: column; gap: 12px; }
+  .entry-thumb {
+    flex-basis: auto;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
 }
