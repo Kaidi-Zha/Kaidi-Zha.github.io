@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS visits (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ts TEXT NOT NULL,
+  path TEXT DEFAULT '',
+  referrer TEXT DEFAULT '',
+  ua TEXT DEFAULT '',
+  ip TEXT DEFAULT '',
+  country TEXT DEFAULT '',
+  city TEXT DEFAULT ''
+);
+CREATE INDEX IF NOT EXISTS idx_visits_ts ON visits(ts);

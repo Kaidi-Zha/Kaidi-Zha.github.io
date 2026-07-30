@@ -1,0 +1,12 @@
+name = "kaidi-analytics"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kaidi-analytics"
+database_id = "8e832f58-8f61-4da9-b654-48ac0bb09fbe"   # wrangler d1 create 后填入
+
+# 每周一 01:00 UTC（北京时间周一 09:00）发送上周汇总邮件
+[triggers]
+crons = ["0 1 * * MON"]

@@ -21,19 +21,48 @@
     </p>
 
     <section>
-      <h2>Motivation</h2>
-      <p>Off-policy RL suffers a transient value-overestimation surge—the <em>aleatoric impulse</em>—rooted in intrinsic estimation noise; heuristic annealing schedules are hyperparameter-sensitive and asymptotically inconsistent.</p>
+      <h2>Overview</h2>
+      <p><strong>Problem.</strong> Off-policy reinforcement learning suffers from the <em>aleatoric impulse</em> — a transient surge in value overestimation arising from intrinsic noise in empirical value estimation. Prior algorithms either overlook this issue or mitigate it through heuristic strategies, which inevitably introduce hyperparameter sensitivity and asymptotic inconsistency.</p>
+      <p><strong>Approach.</strong> We propose Direct Evidential Regression (DEAR), a generalized operator that uses an exponential moving average (EMA) anchor to explicitly quantify the higher-order aleatoric uncertainty of arbitrary estimators in an end-to-end manner. Building upon DEAR, we develop AIDER (Aleatoric Impulse Damping via Direct Evidential Regression), which restructures the critic network to directly learn aleatoric value uncertainty. This principled uncertainty estimate eliminates the need for heuristic annealing schedules and naturally provides both a robust pessimistic target bound and a dynamic exploration bonus.</p>
+      <p><strong>Findings.</strong> Extensive experiments on MuJoCo, the DeepMind Control Suite, and a vehicle longitudinal tracking task demonstrate that AIDER achieves state-of-the-art performance on challenging dynamic benchmarks, consistently outperforming its predecessor DSAC-AID and other strong baselines.</p>
     </section>
 
     <section>
-      <h2>Contribution</h2>
-      <p>The team proposed DEAR, an EMA-anchored evidential regression operator that learns higher-order aleatoric uncertainty end-to-end, and AIDER, which turns it into pessimistic targets and exploration bonuses with no annealing schedule; I explored extending the framework to diffusion / normalizing-flow multimodal policies.</p>
+      <h2>Background &amp; Motivation</h2>
+      <p><strong>Where the impulse comes from.</strong> In off-policy RL, the true action-value is deterministic, but in practice it is approximated by an empirical estimator built from a finite ensemble of networks trained on a finite number of effective samples. Applying the law of total variance, the total value uncertainty decouples into an epistemic component (ensemble disagreement) and an aleatoric component — the irreducible return uncertainty scaled by the inverse of the effective evidence count 1/n.</p>
+      <p><strong>Why early training is fragile.</strong> During the early stages of training, highly stochastic exploratory policies maximize return uncertainty while severe data scarcity minimizes n. This combination sustains 1/n at a critically high level, amplifying intrinsic noise into a massive, transient surge in total value uncertainty. Through the maximization operator, this statistical impulse induces severe overestimation bias, misleading the agent toward suboptimal actions and fundamentally derailing the learning trajectory.</p>
+      <p><strong>Why existing fixes fall short.</strong> Distributional methods such as DSAC-T and IV-RL implicitly encapsulate aleatoric uncertainty within total return uncertainty but fail to isolate it for target rectification — the information is confined to gradient modulation. Methods that enforce explicit penalization, such as DoubleGum and DSAC-AID, reconstruct the critical aleatoric <em>value</em> uncertainty indirectly through the learned aleatoric <em>return</em> uncertainty, a structural misalignment that necessitates complex heuristic scaling and introduces hyperparameter sensitivity and asymptotic inconsistency.</p>
+    </section>
+
+    <section>
+      <h2>Method</h2>
+      <p><strong>DEAR: direct evidential regression.</strong> To bypass heuristic schedules common in traditional evidential regression, DEAR models a general parameter estimator as a Gaussian random variable and maintains a target network updated via EMA as a stable empirical anchor for the latent mean. An auxiliary prediction head parameterizes the variance and is optimized with a Gaussian negative log-likelihood objective against the EMA anchor (with stop-gradient), so the network learns its own higher-order estimation variance directly and end-to-end, completely bypassing heuristic approximations and the rigidity of conjugate priors.</p>
+      <p><strong>Toy validation.</strong> A staged toy regression task (noisy cubic, data revealed center-to-edge, evaluation extended out-of-distribution) isolates the mechanism: DEAR's fitted curve expands smoothly toward the true trend as coverage grows, and its uncertainty stays compact in-domain while rising smoothly near sparse or OOD regions. Over 5 seeds, DEAR achieves RMSE 18.93 ± 0.81 versus 23.64 ± 2.24 for Deep Evidential Regression (DER), with a compact in-domain std of 3.17 ± 0.07, a moderate OOD std of 7.69 ± 1.18, and far more stable cross-seed OOD calibration than DER (7.69 ± 1.18 vs. 21.26 ± 20.04).</p>
+      <p><strong>AIDER: evidential critic augmentation.</strong> Embedding DEAR into the DSAC architecture, we restructure each critic into an evidential network with an additional head that explicitly estimates the evidence count n(s, a); the aleatoric value uncertainty is then parameterized structurally as the aleatoric return variance divided by n. Since evidence counts are stabler than the uncertainty itself, this design mitigates the disruptive impact of the DEAR loss gradients on shared representation layers. A higher-order target network maintained by EMA anchors the evidential NLL objective, which simply adds to the original value regression loss.</p>
+      <p><strong>Uncertainty utilization.</strong> The directly learned aleatoric value uncertainty is combined with epistemic ensemble disagreement to form the total value uncertainty — with no heuristic scaling. This total uncertainty substitutes the heuristically scaled component of the previous AID mechanism, serving as the penalty term of a pessimistic lower-confidence-bound target for stable value evaluation, and simultaneously as a dynamic upper-confidence-bound exploration bonus for a decoupled behavior policy. A target policy maximizing the Q-value penalized solely by epistemic uncertainty keeps value backup risk-neutral, while the optimistic behavior policy symmetrically counterbalances the critic's pessimism — entirely eliminating the closed-loop annealing schedules and their hyperparameter sensitivity.</p>
+      <p><strong>Personal contribution.</strong> Within the team, I explored extending the framework to diffusion / normalizing-flow multimodal policies.</p>
+    </section>
+
+    <section>
+      <h2>Experiments</h2>
+      <p><strong>Benchmarks.</strong> We evaluate DSAC-AIDER on a challenging suite of high-dimensional locomotion tasks drawn from the MuJoCo continuous control suite in OpenAI Gym and the DeepMind Control Suite (DMC), featuring three of the most complex agents — humanoid, ant, and dog — in high-dimensional observation and continuous action spaces.</p>
+      <p><strong>Baselines.</strong> Ten representative algorithms in two paradigms: model-free baselines including classic PPO and SAC, state-of-the-art distributional methods DSAC-T, DoubleGum, and BRO, plus the most closely related predecessor DSAC-AID; and model-based baselines comprising DreamerV3, TD-MPC2, BMPC, and BOOM. Including DSAC-AID isolates the specific contribution of the DEAR operator and direct evidential uncertainty estimation over the original heuristic annealing mechanism.</p>
+      <p><strong>Deployment task.</strong> Beyond simulated benchmarks, we deploy the algorithm on a custom four-wheel-drive (4WD) longitudinal vehicle dynamics environment built on the GOPS framework. The agent commands independent motor torque for each of the four wheels (bounded within [−1500, +2000] N·m) at 100 Hz to track a sinusoidal reference speed with mean 20 m/s and amplitude 3.0 m/s (feasible range 17–23 m/s), using a state that includes velocity, acceleration, tracking error, the four wheel torques, and a 10-step preview of the reference trajectory.</p>
     </section>
 
     <section>
       <h2>Results</h2>
-      <p>Best average performance on the DeepMind Control Suite among 7 model-free baselines (Humanoid-run return 575 → 648 over the predecessor); deployed on a 4WD vehicle speed-tracking task with RMSE 0.349 m/s (~1.5% error).</p>
+      <p><strong>Standard benchmarks.</strong> On the DeepMind Control Suite, DSAC-AIDER achieves the best average performance among 7 model-free baselines, with a normalized average score of 0.871 ± 0.137 versus 0.853 ± 0.170 for DSAC-AID and 0.796 ± 0.197 for DoubleGum. The gains concentrate on dynamic locomotion: on Humanoid-run, DSAC-AIDER raises the total average return from 575.0 ± 56.7 to 648.1 ± 22.9 (+12.7% over DSAC-AID, +37.0% over DSAC-T), and on Dog-run it achieves the best score of 870.6 ± 5.1. On Gym-MuJoCo, it reaches the best Humanoid-v3 return of 12.177 ± 0.563 k (+4.6% over DSAC-AID) and ranks second on Ant-v3 at 8.300 ± 0.073 k.</p>
+      <p><strong>Vehicle deployment.</strong> On the 4WD longitudinal tracking task, the trained policy completes all 5 evaluation episodes (2000 steps each) with a speed-tracking RMSE of 0.349 m/s and MAE of 0.272 m/s — a tracking accuracy of approximately 1.5% relative to the 17–23 m/s target range. During training, the policy standard deviation decays from an exploratory 1.65 to a near-deterministic 0.60 as tracking proficiency improves.</p>
       <div class="demo-grid">
+        <figure>
+          <a href="../assets/img/aider-dmc-curves.png"><img src="../assets/img/aider-dmc-curves.png" alt="Training curves of model-free algorithms on MuJoCo and DMC benchmarks" loading="lazy"></a>
+          <figcaption>Benchmark training curves — AIDER (red) leads on dynamic tasks such as Humanoid-run and Dog-run; solid lines are means, shaded regions are confidence intervals over multiple seeds</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/aider-vehicle-tracking.png"><img src="../assets/img/aider-vehicle-tracking.png" alt="Vehicle speed tracking on a representative test episode" loading="lazy"></a>
+          <figcaption>4WD deployment — actual speed (blue) tracks the sinusoidal reference (red dashed) within the ±1 m/s band, with coordinated four-wheel torque commands</figcaption>
+        </figure>
         <figure>
           <a href="../assets/img/aider-dear-fit.png"><img src="../assets/img/aider-dear-fit.png" alt="DEAR vs. DER final fit comparison on the toy regression task" loading="lazy"></a>
           <figcaption>Toy regression — DEAR (left) tracks the true curve with a tighter predictive band than DER (right), RMSE 18.9 vs. 23.6</figcaption>
@@ -45,9 +74,16 @@
       </div>
     </section>
 
+    <section>
+      <h2>Conclusion &amp; Limitations</h2>
+      <p><strong>Conclusion.</strong> This project addresses the aleatoric impulse — a transient yet destructive value overestimation surge in off-policy RL — with DEAR, a generalized evidential regression operator that uses an EMA anchor to directly quantify higher-order aleatoric uncertainty end-to-end, and AIDER, which restructures the critic as an evidential network to explicitly learn aleatoric value uncertainty. The unified total uncertainty (aleatoric + epistemic) enables robust pessimistic penalization and dynamic exploration while completely eliminating complex annealing schedules, achieving state-of-the-art evaluation stability and efficient exploration across challenging continuous control benchmarks.</p>
+      <p><strong>Limitations.</strong> AIDER does not uniformly dominate its predecessor: DSAC-AID remains slightly better on Ant-v3, Dog-stand, Humanoid-stand, and the Gym-MuJoCo average, with AIDER's advantages concentrated on more dynamic and unstable locomotion tasks. On the vehicle task, the learned policy does not enforce torque symmetry between left and right wheels — it exploits the longitudinal model's lack of yaw dynamics, suggesting the current reward formulation does not penalize physically implausible torque distributions. Future iterations could incorporate symmetry regularization or a physically constrained action space.</p>
+    </section>
+
     <p style="margin-top:56px;"><a class="back-link" href="../index.html" style="margin-bottom:0;">← Back to home</a></p>
   </div>
 
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/analytics.js" defer></script>
 </body>
 </html>
