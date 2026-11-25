@@ -595,6 +595,33 @@ footer a:hover { color: var(--accent); text-decoration: none; }
   max-width: 90%;
 }
 
+/* ── Home: internship entry ── */
+.internship-entry {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.internship-logo {
+  flex-shrink: 0;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: var(--accent-hover);
+  object-fit: contain;
+}
+.internship-company {
+  font-weight: 700;
+}
+.internship-company:hover {
+  text-decoration: none;
+}
+@media (max-width: 420px) {
+  .internship-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
 /* ── Home: project entry — compact thumbnail beside meta-only content ── */
 .project-entry {
   display: grid;
