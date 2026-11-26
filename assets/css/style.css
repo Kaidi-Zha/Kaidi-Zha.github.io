@@ -50,12 +50,14 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 /* In-paragraph links should be discoverable without hover. */
 .bio a,
+.bio-contact a,
 .entry-meta a {
   text-decoration: underline;
   text-decoration-color: rgba(200, 96, 58, 0.45);
   text-underline-offset: 3px;
 }
 .bio a:hover,
+.bio-contact a:hover,
 .entry-meta a:hover {
   text-decoration-color: var(--accent-hover);
 }
@@ -222,7 +224,9 @@ main {
   font-size: 1.12rem;
   color: var(--text);
   line-height: 1.9;
-  margin-bottom: 22px;
+}
+.bio + .bio {
+  margin-top: 22px;
 }
 .bio em {
   color: var(--accent);
@@ -230,11 +234,21 @@ main {
   font-weight: 400;
 }
 
-.bio-summary {
+.bio[lang="zh-Hans"],
+.bio-contact {
   font-family: "Source Serif 4", "Songti SC", "Noto Serif CJK SC", serif;
-  font-size: 0.95rem;
+}
+
+.bio-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2em 0.7em;
+  margin-top: 18px;
   color: var(--text-mid);
-  line-height: 1.85;
+}
+.bio-contact a {
+  overflow-wrap: anywhere;
 }
 
 .interests-line {
@@ -391,6 +405,27 @@ h2::after {
   color: var(--text-mid);
   padding-right: 16px;
   white-space: nowrap;
+}
+
+/* ── Closing quote ── */
+.closing-quote {
+  max-width: 27rem;
+  margin-inline: auto;
+  font-family: var(--font-reading);
+}
+.closing-quote blockquote {
+  color: var(--accent);
+  font-size: 1.375rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: balance;
+}
+.closing-quote figcaption {
+  margin-top: 10px;
+  color: var(--text-mid);
+  font-size: 0.875rem;
+  text-align: right;
 }
 
 /* ── Footer ── */
